@@ -1,0 +1,102 @@
+{
+  "propertyid": "1982",
+  "apikey": "dskfmslkfnsdWEFWEfwf",
+  "action": "reservation_info",
+  "reservations": {
+    "reservation": [
+      {
+        "reservation_datetime": "2018-09-28T15:00:09",
+        "propertyname": "Hotel River Park",
+        "reservation_id": "2281422662036",
+        "commissionamount": "0.00",
+        "deposit": "0.00",
+        "totalamountaftertax": "115.00",
+        "totaltax": "10",
+        "currencycode": "EUR",
+        "status": "Confirm",
+        "customer": {
+          "address": "ABCD",
+          "city": "Mumbai",
+          "company": "Booking.com",
+          "country": "India",
+          "email": "abc@test.com",
+          "first_name": "Test",
+          "last_name": "STAAH",
+          "remarks": "** test remark **",
+          "telephone": "+12121212",
+          "zip": "2300"
+        },
+        "paymentcarddetail": {
+          "CardHolderName": "XXXXXXXXX",
+          "CardType": "XXXXXXXXX",
+          "ExpireDate": "XXXXXXXXX",
+          "CardNumber": "xxxxxxxxxxxxxxx",
+          "cvv": "xxx"
+        },
+        "room": [
+          {
+            "arrival_date": "2018-11-01",
+            "departure_date": "2018-11-03",
+            "room_id": "152862",
+            "room_name": "Day for 2",
+            "price": [
+              {
+                "date": "2018-11-01",
+                "rate_id": "5153113",
+                "amountaftertax": "50.00"
+              },
+              {
+                "date": "2018-11-02",
+                "rate_id": "5153113",
+                "amountaftertax": "50.00"
+              }
+            ],
+            "taxes": [
+              {
+                "name": "service charge",
+                "value": "2.50"
+              },
+              {
+                "name": "VAT",
+                "value": "2.50"
+              }
+            ],
+            "Addons": [
+              {
+                "Name": "Breakfast",
+                "Price": "5.00"
+              },
+              {
+                "Name": "Carrom",
+                "Price": "5.00"
+              }
+            ],
+            "amountaftertax": "115.00",
+            "remarks": "No Smoking",
+            "guest_name": "Test Staah",
+            "GuestCount": [
+              {
+                "AgeQualifyingCode": "10",
+                "Count": "2"
+              },
+              {
+                "AgeQualifyingCode": "8",
+                "Count": "0"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}[
+  // response
+  ({
+    "bookingId": "6451000127",
+    "status": "success",
+    "error_desc": ""
+  },
+  {
+    "trackingId": "BF113980-AAE6-4E8B-879B-4A478BA56CA4"
+  })
+]

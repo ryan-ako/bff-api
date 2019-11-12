@@ -77,7 +77,7 @@ export class BotResponseService {
           password: 'bac99f72-8ee9-4308-a68a-59ecd0b677c9',
         },
       }).then(() => {
-        return `Update ${Code} successfully!`;
+        return `Update Messages ${Code} successfully!`;
       });
     } catch (error) {
       console.error(error);
@@ -85,38 +85,39 @@ export class BotResponseService {
     }
   }
 
-  async putMessages(updateMessagesDto: ResponseDto) {
+  /* Link */
+  async updateLink(updateMessagesDto: ResponseDto): Promise<any> {
+    const {
+      Code,
+      GroupId,
+      Language,
+      Channel,
+      PropertyId,
+      Default,
+      Overrides,
+    } = updateMessagesDto;
     try {
       return await Axios({
         method: 'put',
-        url:
-          'https://conapi.devtest.bookmebob.com/bot-responses/messages/test_101',
+        url: `https://conapi.devtest.bookmebob.com/bot-responses/messages-link/${Code}`,
         data: {
-          GroupId: '73574010-2f33-4b41-8b8a-09d18b025a56',
-          Language: 'en-US',
-          Channel: 'WebsiteDirectLine',
-          PropertyId: 'e655dab2-987b-4683-ad9b-599814b414b6',
-          Default: [
-            'While we do not have a pool at this stage, we do offer a state-of-the-art jacuzzi and sauna for your enjoyment...haha',
-          ],
-          Overrides: {
-            'm-withkids': [
-              'While we do not have a pool at this stage, we do offer a state-of-the-art jacuzzi and sauna for your enjoyment.',
-              'Children under 12 are welcome when accompanied by an adult.',
-            ],
-            'm-business': [
-              'While we do not have a pool at this stage, we do offer a state-of-the-art jacuzzi and sauna for your enjoyment.',
-              'These facilities may be booked in advance for a more relaxing, private experience.',
-            ],
-          },
+          GroupId,
+          Language,
+          Channel,
+          PropertyId,
+          Default,
+          Overrides,
         },
         auth: {
           username: 'bot',
           password: 'bac99f72-8ee9-4308-a68a-59ecd0b677c9',
         },
+      }).then(() => {
+        return `Update Link ${Code} successfully!`;
       });
     } catch (error) {
       console.error(error);
+      throw Error('Bff get some problems.');
     }
   }
 }

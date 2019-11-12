@@ -15,7 +15,7 @@ const fetchResponse = async (code: string) => {
           username: 'bot',
           password: 'bac99f72-8ee9-4308-a68a-59ecd0b677c9',
         },
-      },
+      }
     );
   } catch (error) {
     console.error(error);
@@ -32,6 +32,8 @@ const buildResponseWithExample = async data => {
     if (result) {
       const responses = result.data;
       responses.response.example = element.example;
+      responses.query.category = element.category;
+      responses.query['hint-question'] = element['hint-question'];
       responsesWithExample.push(responses);
     }
   }

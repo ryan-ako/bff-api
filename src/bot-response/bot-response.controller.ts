@@ -37,10 +37,16 @@ export class BotResponseController {
     return this.botResponseService.getTestResponse();
   }
 
+  @Post('/messages')
+  createMessages(@Body() updateMessagesDto: ResponseDto) {
+    return this.botResponseService.createMessages(updateMessagesDto);
+  }
+
   @Put('/messages')
   updateMessages(@Body() updateMessagesDto: ResponseDto) {
     return this.botResponseService.updateMessages(updateMessagesDto);
   }
+
   @Put('/messages-link')
   updateLink(@Body() updateMessagesDto: ResponseDto) {
     return this.botResponseService.updateLink(updateMessagesDto);

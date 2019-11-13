@@ -55,7 +55,7 @@ export class BotResponseService {
   }
 
   /* Messages */
-  async updateMessages(updateMessagesDto: ResponseDto): Promise<any> {
+  async updateMessages(responseDto: ResponseDto): Promise<any> {
     const {
       Code,
       GroupId,
@@ -64,7 +64,7 @@ export class BotResponseService {
       PropertyId,
       Default,
       Overrides,
-    } = updateMessagesDto;
+    } = responseDto;
     try {
       return await Axios({
         method: 'put',
@@ -91,7 +91,7 @@ export class BotResponseService {
   }
 
   /* Link */
-  async updateLink(updateMessagesDto: ResponseDto): Promise<any> {
+  async updateLink(responseDto: ResponseDto): Promise<any> {
     const {
       Code,
       GroupId,
@@ -100,7 +100,7 @@ export class BotResponseService {
       PropertyId,
       Default,
       Overrides,
-    } = updateMessagesDto;
+    } = responseDto;
     try {
       return await Axios({
         method: 'put',
@@ -119,6 +119,43 @@ export class BotResponseService {
         },
       }).then(() => {
         return `Update Link ${Code} successfully!`;
+      });
+    } catch (error) {
+      console.error(error);
+      throw Error('Bff get some problems.');
+    }
+  }
+
+  async createMessages(responseDto: ResponseDto): Promise<any> {
+    const {
+      Code,
+      GroupId,
+      Language,
+      Channel,
+      PropertyId,
+      Default,
+      Overrides,
+    } = responseDto;
+
+    try {
+      return await Axios({
+        method: 'post',
+        url: `https://conapi.devtest.bookmebob.com/bot-responses/messages`,
+        data: {
+          GroupId,
+          Code,
+          Language,
+          Channel,
+          PropertyId,
+          Default,
+          Overrides,
+        },
+        auth: {
+          username: 'bot',
+          password: 'bac99f72-8ee9-4308-a68a-59ecd0b677c9',
+        },
+      }).then(() => {
+        return `Create Messages ${Code} successfully!`;
       });
     } catch (error) {
       console.error(error);

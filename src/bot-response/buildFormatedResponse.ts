@@ -18,8 +18,27 @@ const fetchResponse = async (code: string) => {
       }
     );
   } catch (error) {
-    console.error(error);
+    console.error(`${code} Not found`);
   }
+};
+
+const templateData = {
+  query: {
+    code: '',
+    groupId: '',
+    contextTags: {
+      lang: '',
+      pid: '',
+    },
+    filterTags: [],
+    category: '',
+    hintQuestion: '',
+  },
+  response: {
+    type: '',
+    messages: [],
+    example: '',
+  },
 };
 
 // use the responseCode as code in properyInformation to fetch data,
@@ -30,11 +49,38 @@ const buildResponseWithExample = async data => {
     const code = element.responseCode;
     const result = await fetchResponse(code);
     if (result) {
-      const responses = result.data;
-      responses.response.example = element.example;
-      responses.query.category = element.category;
-      responses.query['hint-question'] = element['hint-question'];
-      responsesWithExample.push(responses);
+      const responses = { ...result.data };
+      const template = {
+        query: {
+          code: responses.query.code || '',
+          category: element.category || '',
+          hintQuestion: element['hint-question'] || '',
+        },
+        response: {
+          type: responses.response.type || '',
+          isExample: false,
+          messages: responses.response.messages || [],
+          example: element.example || '',
+        },
+      };
+      responsesWithExample.push(template);
+    } else {
+      const template = {
+        query: {
+          code: element.responseCode || '',
+          category: element.category || '',
+          hintQuestion: element['hint-question'] || '',
+        },
+        response: {
+          type: 'example',
+          isExample: true,
+          // messages array need a number item, then the front end can always show messages block when there is a example messsge.
+          messages: [0],
+          example: element.example || '',
+        },
+      };
+      responsesWithExample.push(template);
+      console.log(`${code} Not found`);
     }
   }
   return responsesWithExample;
@@ -75,7 +121,7 @@ const buildResponseWithDetails = async data => {
   return responses;
 };
 
-export const getFormatedResponse = data => {
+export const buildFormatedTestResponse = data => {
   const response = buildResponseWithDetails(data);
   return response;
 };

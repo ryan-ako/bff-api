@@ -1,7 +1,6 @@
 import { Injectable, Res } from '@nestjs/common';
 import Axios from 'axios';
-import { getFormatedResponse } from './buildFormatedResponse';
-import { buildFormatedTestResponse } from './buildFormatedTestResponse';
+import { buildFormatedTestResponse } from './buildFormatedResponse';
 import { ResponseDto } from './dto/create-response.dto';
 import propertyInformation from './data/propertyInformation';
 import propertyAmenities from './data/propertyAmenities';
@@ -39,16 +38,16 @@ export class BotResponseService {
     }
   };
 
-  async getPropertyInformationResponse() {
-    return getFormatedResponse(propertyInformation);
+  async getAboutPropertyResponse() {
+    return buildFormatedTestResponse(propertyInformation);
   }
 
-  async getPropertyAmenitiesResponse() {
-    return getFormatedResponse(propertyAmenities);
+  async getPropertyFacilitiesResponse() {
+    return buildFormatedTestResponse(propertyAmenities);
   }
 
   async getRoomAmenitiesResponse() {
-    return getFormatedResponse(RoomAmenities);
+    return buildFormatedTestResponse(RoomAmenities);
   }
 
   async getTestResponse() {

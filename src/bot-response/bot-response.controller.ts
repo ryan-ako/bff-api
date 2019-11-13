@@ -17,14 +17,14 @@ export class BotResponseController {
     }
   }
 
-  @Get('/pabout-property-response')
-  getPropertyInformationResponse() {
-    return this.botResponseService.getPropertyInformationResponse();
+  @Get('/about-property-response')
+  getAboutPropertyResponse() {
+    return this.botResponseService.getAboutPropertyResponse();
   }
 
   @Get('/property-facilities-response')
-  getPropertyAmenitiesResponse() {
-    return this.botResponseService.getPropertyAmenitiesResponse();
+  getPropertyFacilitiesResponse() {
+    return this.botResponseService.getPropertyFacilitiesResponse();
   }
 
   @Get('/room-amenities-response')

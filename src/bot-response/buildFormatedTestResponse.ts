@@ -50,20 +50,32 @@ const buildResponseWithExample = async data => {
     const result = await fetchResponse(code);
     if (result) {
       const responses = { ...result.data };
-      const template = { ...templateData };
-      template.query = { ...responses.query };
-      template.response = { ...responses.response };
-      console.log('responses', responses);
-      template.response.example = element.example;
-      template.query.category = element.category;
-      template.query['hint-question'] = element['hint-question'];
+      const template = {
+        query: {
+          code: responses.query.code || '',
+          category: element.category || '',
+          hintQuestion: element['hint-question'] || '',
+        },
+        response: {
+          type: responses.response.type || '',
+          messages: responses.response.messages || [],
+          example: element.example || '',
+        },
+      };
       responsesWithExample.push(template);
     } else {
-      const template = { ...templateData };
-      template.query.code = element.responseCode;
-      template.query['hint-question'] = element['hint-question'];
-      template.response.example = element.example;
-      template.query.category = element.category;
+      const template = {
+        query: {
+          code: element.responseCode || '',
+          category: element.category || '',
+          hintQuestion: element['hint-question'] || '',
+        },
+        response: {
+          type: 'messages',
+          messages: [],
+          example: element.example || '',
+        },
+      };
       responsesWithExample.push(template);
       console.log(`${code} Not found`);
     }

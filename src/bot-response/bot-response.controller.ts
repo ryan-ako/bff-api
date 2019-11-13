@@ -17,12 +17,12 @@ export class BotResponseController {
     }
   }
 
-  @Get('/property-information-response')
+  @Get('/pabout-property-response')
   getPropertyInformationResponse() {
     return this.botResponseService.getPropertyInformationResponse();
   }
 
-  @Get('/property-amenities-response')
+  @Get('/property-facilities-response')
   getPropertyAmenitiesResponse() {
     return this.botResponseService.getPropertyAmenitiesResponse();
   }
@@ -30,6 +30,11 @@ export class BotResponseController {
   @Get('/room-amenities-response')
   getRoomAmenitiesResponse() {
     return this.botResponseService.getRoomAmenitiesResponse();
+  }
+
+  @Get('/test-response')
+  getTestResponse() {
+    return this.botResponseService.getTestResponse();
   }
 
   @Put('/messages')

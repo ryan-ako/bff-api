@@ -22,25 +22,6 @@ const fetchResponse = async (code: string) => {
   }
 };
 
-const templateData = {
-  query: {
-    code: '',
-    groupId: '',
-    contextTags: {
-      lang: '',
-      pid: '',
-    },
-    filterTags: [],
-    category: '',
-    hintQuestion: '',
-  },
-  response: {
-    type: '',
-    messages: [],
-    example: '',
-  },
-};
-
 // use the responseCode as code in properyInformation to fetch data,
 // then add "example" property to APIresult
 const buildResponseWithExample = async data => {
@@ -95,21 +76,33 @@ function checkObjInclude(arr) {
   }
 }
 
-// Extract the object in messages and add it to APIresult.response.details
-// If there in no object in messages, just set APIresult.response.details to { type: "messages" }
+/**
+ * Extract the object in messages and add it to APIresult.response.details
+ * If there in no object in messages, just set APIresult.response.details to { type: "messages" }
+ */
 const buildResponseWithDetails = async data => {
   const ResponsesWithExample = await buildResponseWithExample(data);
-
   const responses = ResponsesWithExample.map(elem => {
     const messages = elem.response.messages;
     const objNotInclude = checkObjInclude(messages);
     if (objNotInclude) {
-      elem.response.details = { type: 'messages' };
+      elem.response.details = {
+        type: 'messages',
+      };
+      /** add numberOfMsg to response  */
+      messages.forEach((msg, index) => {
+        elem.response.numberOfMsg = index + 1;
+      });
     } else {
       if (messages) {
         messages.forEach((msg, index) => {
+          if (typeof msg === 'string') {
+            /** add numberOfMsg to response  */
+            elem.response.numberOfMsg = index + 1;
+          }
           if (typeof msg === 'object') {
             elem.response.details = msg;
+            /** remove this object from messages array */
             messages.splice(index, 1);
           }
         });

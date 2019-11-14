@@ -126,6 +126,42 @@ export class BotResponseService {
     }
   }
 
+  /* ImageCarousel */
+  async updateImageCarousel(responseDto: ResponseDto): Promise<any> {
+    const {
+      Code,
+      GroupId,
+      Language,
+      Channel,
+      PropertyId,
+      Default,
+      Overrides,
+    } = responseDto;
+    try {
+      return await Axios({
+        method: 'put',
+        url: `https://conapi.devtest.bookmebob.com/bot-responses/messages-image-carousel/${Code}`,
+        data: {
+          GroupId,
+          Language,
+          Channel,
+          PropertyId,
+          Default,
+          Overrides,
+        },
+        auth: {
+          username: 'bot',
+          password: 'bac99f72-8ee9-4308-a68a-59ecd0b677c9',
+        },
+      }).then(() => {
+        return `Update Image Carousel ${Code} successfully!`;
+      });
+    } catch (error) {
+      console.error(error);
+      throw Error('Bff get some problems.');
+    }
+  }
+
   async createMessages(responseDto: ResponseDto): Promise<any> {
     const {
       Code,

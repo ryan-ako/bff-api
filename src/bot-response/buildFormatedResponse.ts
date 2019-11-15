@@ -2,13 +2,13 @@ import propertyInformation from './propertyInformation';
 import Axios from 'axios';
 
 // fetch API by using property id & group id & auth(name ,password)
-const fetchResponse = async (code: string) => {
+const fetchResponse = async (code: string, propertyId: string) => {
   try {
     return await Axios.get(
       `https://conapi.devtest.bookmebob.com/bot-responses/${code}`,
       {
         params: {
-          ct: `lang|en-US,pid|e655dab2-987b-4683-ad9b-599814b414b6`,
+          ct: `lang|en-US,pid|${propertyId}`,
           gid: `73574010-2f33-4b41-8b8a-09d18b025a56`,
         },
         auth: {
@@ -24,11 +24,11 @@ const fetchResponse = async (code: string) => {
 
 // use the responseCode as code in properyInformation to fetch data,
 // then add "example" property to APIresult
-const buildResponseWithExample = async data => {
+const buildResponseWithExample = async (data, propertyId) => {
   const responsesWithExample = [];
   for (const element of data) {
     const code = element.responseCode;
-    const result = await fetchResponse(code);
+    const result = await fetchResponse(code, propertyId);
     if (result) {
       const responses = { ...result.data };
       const template = {
@@ -80,8 +80,8 @@ function checkObjInclude(arr) {
  * Extract the object in messages and add it to APIresult.response.details
  * If there in no object in messages, just set APIresult.response.details to { type: "messages" }
  */
-const buildResponseWithDetails = async data => {
-  const ResponsesWithExample = await buildResponseWithExample(data);
+const buildResponseWithDetails = async (data, propertyId) => {
+  const ResponsesWithExample = await buildResponseWithExample(data, propertyId);
   const responses = ResponsesWithExample.map(elem => {
     const messages = elem.response.messages;
     const objNotInclude = checkObjInclude(messages);
@@ -114,7 +114,7 @@ const buildResponseWithDetails = async data => {
   return responses;
 };
 
-export const buildFormatedTestResponse = data => {
-  const response = buildResponseWithDetails(data);
+export const buildFormatedTestResponse = (data, propertyId) => {
+  const response = buildResponseWithDetails(data, propertyId);
   return response;
 };

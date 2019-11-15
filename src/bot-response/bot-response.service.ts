@@ -38,20 +38,20 @@ export class BotResponseService {
     }
   };
 
-  async getAboutPropertyResponse() {
-    return buildFormatedTestResponse(propertyInformation);
+  async getAboutPropertyResponse(propertyId) {
+    return buildFormatedTestResponse(propertyInformation, propertyId);
   }
 
-  async getPropertyFacilitiesResponse() {
-    return buildFormatedTestResponse(propertyAmenities);
+  async getPropertyFacilitiesResponse(propertyId) {
+    return buildFormatedTestResponse(propertyAmenities, propertyId);
   }
 
-  async getRoomAmenitiesResponse() {
-    return buildFormatedTestResponse(RoomAmenities);
+  async getRoomAmenitiesResponse(propertyId) {
+    return buildFormatedTestResponse(RoomAmenities, propertyId);
   }
 
-  async getTestResponse() {
-    return buildFormatedTestResponse(testExample);
+  async getTestResponse(propertyId) {
+    return buildFormatedTestResponse(testExample, propertyId);
   }
 
   /* Messages */

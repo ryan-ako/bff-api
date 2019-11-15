@@ -1,4 +1,13 @@
-import { Controller, Get, Post, Body, Put, Param, Res } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Put,
+  Param,
+  Res,
+  Query,
+} from '@nestjs/common';
 import { BotResponseService } from './bot-response.service';
 import { ResponseDto } from './dto/create-response.dto';
 import { Response } from 'express';
@@ -18,23 +27,23 @@ export class BotResponseController {
   }
 
   @Get('/about-property-response')
-  getAboutPropertyResponse() {
-    return this.botResponseService.getAboutPropertyResponse();
+  getAboutPropertyResponse(@Query('property_id') propertyId) {
+    return this.botResponseService.getAboutPropertyResponse(propertyId);
   }
 
   @Get('/property-facilities-response')
-  getPropertyFacilitiesResponse() {
-    return this.botResponseService.getPropertyFacilitiesResponse();
+  getPropertyFacilitiesResponse(@Query('property_id') propertyId) {
+    return this.botResponseService.getPropertyFacilitiesResponse(propertyId);
   }
 
   @Get('/room-amenities-response')
-  getRoomAmenitiesResponse() {
-    return this.botResponseService.getRoomAmenitiesResponse();
+  getRoomAmenitiesResponse(@Query('property_id') propertyId) {
+    return this.botResponseService.getRoomAmenitiesResponse(propertyId);
   }
 
   @Get('/test-response')
-  getTestResponse() {
-    return this.botResponseService.getTestResponse();
+  getTestResponse(@Query('property_id') propertyId) {
+    return this.botResponseService.getTestResponse(propertyId);
   }
 
   /**

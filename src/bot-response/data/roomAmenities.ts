@@ -2,15 +2,15 @@ const data = [
   {
     responseCode: 'amenity_child_crib',
     category: 'Kids facilities',
-    'hint-question': 'Cot/Cribs?',
-    'detailed-explanation': 'Can you provide baby cot in all rooms',
+    'hint-question': 'Cot/ Cribs?',
+    'detailed-explanation': 'Can you provide baby cot in your rooms?',
     example:
       'All our rooms can for baby cots. Just let the recetion know when you check-in and they will organise for you.',
   },
   {
     responseCode: 'amenity_sofa',
     category: 'Room Facilities',
-    'hint-question': 'Lounge/Sofa',
+    'hint-question': 'Lounge/ Sofa',
     'detailed-explanation': 'Do you have sofa in rooms?',
     example:
       'Our XX, XXX Suite King and XXXX rooms have a sofa available for your comfort.',
@@ -19,14 +19,14 @@ const data = [
     responseCode: 'amenity_flooring',
     category: 'Room Facilities',
     'hint-question': 'Flooring',
-    'detailed-explanation': 'Are your rooms carpeted/tiled/marble?',
+    'detailed-explanation': 'Are your rooms carpeted/ tiled/ marble?',
     example: 'All floors are either carpeted or tiled/marble.',
   },
   {
     responseCode: 'amenity_closet',
     category: 'Room Facilities',
-    'hint-question': 'Closet/Wardrobe',
-    'detailed-explanation': 'Do you have closet/wardrobes in the rooms?',
+    'hint-question': 'Wardrobe',
+    'detailed-explanation': 'Do you have closet/ wardrobes in the rooms?',
     example:
       'Rooms on every floor have a closet for your storage needs. Please note that these are not walk-in closets.',
   },
@@ -40,7 +40,7 @@ const data = [
   {
     responseCode: 'amenity_safety_box',
     category: 'Room Facilities',
-    'hint-question': 'Safety box',
+    'hint-question': 'Safety Box',
     'detailed-explanation':
       'Does your rooms have safety boxes to store valuables?',
     example:
@@ -49,14 +49,14 @@ const data = [
   {
     responseCode: 'amenity_room_sitting_area',
     category: 'Room Facilities',
-    'hint-question': 'Sitting area in rooms',
+    'hint-question': 'Sitting Area in Rooms',
     'detailed-explanation': 'Do any of your rooms have sitting area?',
     example: 'All rooms except for the Classic Double have a seating area.',
   },
   {
     responseCode: 'amenity_desk',
     category: 'Room Facilities',
-    'hint-question': 'Desk/Study table',
+    'hint-question': 'Desk/ Study Table',
     'detailed-explanation': 'Which rooms have a study table?',
     example:
       'The Superior Double, Junior Suite King and deluxe rooms all have a desk.',
@@ -65,7 +65,7 @@ const data = [
     responseCode: 'amenity_bathroom',
     category: 'Bathroom',
     'hint-question': 'Bathrooms description',
-    'detailed-explanation': 'Tell about your bathrooms',
+    'detailed-explanation': 'Tell about your bathrooms.',
     example:
       'All of our rooms have access to a single private bathroom, fully outfitted to make your stay with us as comfortable as possible.',
   },
@@ -87,7 +87,7 @@ const data = [
   {
     responseCode: 'amenity_clothes_rack',
     category: 'Bathroom',
-    'hint-question': 'Clothes rack',
+    'hint-question': 'Clothes Rack',
     'detailed-explanation': 'Do you have clothes rack to hang clothes?',
     example:
       'All rooms in the Hotel have a clothes rack that you can use to hang your clothes.',
@@ -105,22 +105,22 @@ const data = [
     category: 'Kitchen Facilities',
     'hint-question': 'Wineglasses',
     'detailed-explanation':
-      'Tell about the wineglasses you provide in the kitches/rooms',
+      'Tell about the wineglasses you provide in the kitches/ rooms.',
     example: 'Wine glasses are available in every room.',
   },
   {
     responseCode: 'amenity_consumables',
     category: 'Kitchen Facilities',
-    'hint-question': 'Complimentary consumables',
+    'hint-question': 'Complimentary Consumables',
     'detailed-explanation':
-      'Tell about the complimentary water bottles or anything else you provide',
+      'Tell about the complimentary water bottles or anything else you provide.',
     example:
       "We're happy to offer complimentary water bottles during your stay, with selected light snacks purchasable at any time.",
   },
   {
     responseCode: 'amenity_basic_kitchen',
     category: 'Kitchen Facilities',
-    'hint-question': 'Cooking/kitchen facilities',
+    'hint-question': 'Cooking/ Kitchen Facilities',
     'detailed-explanation':
       'Describe your common and in room cooking/ kitchen facilities.',
     example:
@@ -129,7 +129,7 @@ const data = [
   {
     responseCode: 'amenity_beverage_facility',
     category: 'Kitchen Facilities',
-    'hint-question': 'Tea/coffee facilities',
+    'hint-question': 'Tea/ Coffee',
     'detailed-explanation': 'Do your rooms have tea & coffee facilities?',
     example:
       'All rooms have tea/coffee maker, coffee machine and electric kettle',

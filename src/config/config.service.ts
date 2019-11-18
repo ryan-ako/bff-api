@@ -8,7 +8,7 @@ export class ConfigService {
     // console.log(`filePath: ${filePath}`);
     this.envConfig = dotenv.parse(fs.readFileSync(filePath));
     // console.log(`envConfig: ${JSON.stringify(this.envConfig)}`);
-    // console.log(`NODE_ENV: ${process.env.NODE_ENV}`);
+    console.log(`NODE_ENV: ${process.env.NODE_ENV}`);
   }
 
   get(key: string): string {

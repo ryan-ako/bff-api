@@ -36,6 +36,7 @@ const buildResponseWithExample = async (data, propertyId) => {
           code: responses.query.code || '',
           category: element.category || '',
           hintQuestion: element['hint-question'] || '',
+          detailedExplanation: element['detailed-explanation'] || '-',
         },
         response: {
           type: responses.response.type || '',
@@ -51,6 +52,7 @@ const buildResponseWithExample = async (data, propertyId) => {
           code: element.responseCode || '',
           category: element.category || '',
           hintQuestion: element['hint-question'] || '',
+          detailedExplanation: element['detailed-explanation'] || '-',
         },
         response: {
           type: 'example',

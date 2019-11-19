@@ -119,6 +119,22 @@ const data = [
       'There are several great shops on the Street, just outside the Hotel.',
   },
   {
+    responseCode: 'beach_nearby',
+    category: 'Location',
+    'hint-question': 'Shopping Options',
+    'detailed-explanation':
+      'Tell guests about the shopping options around your property.',
+    example:
+      'There are several great shops on the Street, just outside the Hotel.',
+  },
+  {
+    responseCode: 'cruise_ship_distance',
+    category: 'Location',
+    'hint-question': 'Cruise Terminal',
+    'detailed-explanation': 'How far are you from the cruise terminal?',
+    example: 'Cruise terminal is walking distance from the hotel.',
+  },
+  {
     responseCode: 'alcohol_smoking_drugs_consumption',
     category: 'Smoking',
     'hint-question': 'Smoking Allowed',
@@ -195,6 +211,24 @@ const data = [
       'Tell guests all the ways they can pay online or at the property.',
     example:
       'We accept payment in cash, EFTPOS and all major credit card providers when paying at the property. You can reserve or pay online using all major credit cards. ',
+  },
+  {
+    responseCode: 'payment_options_bond',
+    category: 'Booking',
+    'hint-question': 'Security Deposit',
+    'detailed-explanation':
+      'Do you take any security deposits either in advance or on arrival?',
+    example:
+      'When you check in you need to swipe your card for verification. We do not take any deposit.',
+  },
+  {
+    responseCode: 'career_interest',
+    category: 'Internal',
+    'hint-question': 'Career Interest',
+    'detailed-explanation':
+      'Tell potential staff how to apply for a job in your property.',
+    example:
+      'If you are interested in working for our property please send your latest CV to info@bobhotels.com. Someone will be in touch with you soon.',
   },
 ];
 

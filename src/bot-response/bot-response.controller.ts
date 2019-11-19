@@ -55,31 +55,9 @@ export class BotResponseController {
     return this.botResponseService.createMessages(responseDto);
   }
 
-  /**
-   * Update a Massage type response
-   * @param responseDto
-   */
-  @Put('/messages')
-  updateMessages(@Body() responseDto: ResponseDto) {
-    return this.botResponseService.updateMessages(responseDto);
-  }
-
-  /**
-   * Update a Massage-link type response
-   * @param responseDto
-   */
-  @Put('/messages-link')
-  updateLink(@Body() responseDto: ResponseDto) {
-    return this.botResponseService.updateLink(responseDto);
-  }
-
-  /**
-   * Update a Massage-Image-Carousel type response
-   * @param responseDto
-   */
-  @Put('/messages-image-Carousel')
-  updateImageCarousel(@Body() responseDto: ResponseDto) {
-    return this.botResponseService.updateImageCarousel(responseDto);
+  @Put('/update-response')
+  updateResponse(@Body() responseDto: ResponseDto) {
+    return this.botResponseService.updateResponse(responseDto);
   }
 
   // @Put('link')

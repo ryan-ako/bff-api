@@ -1,12 +1,12 @@
-import { Controller, Get, Post } from '@nestjs/common';
+import { Controller, Get, Post, Query, Param } from '@nestjs/common';
 import { PropertyService } from './property.service';
 
-@Controller('api/property')
+@Controller('/api/property')
 export class PropertyController {
   constructor(private readonly propertyServive: PropertyService) {}
 
-  @Get('/properties')
-  getPropertiesList() {
-    return this.propertyServive.getPropertiesList();
+  @Get('/')
+  getPropertiesList(@Query('group_id') groupId) {
+    return this.propertyServive.getPropertiesList(groupId);
   }
 }

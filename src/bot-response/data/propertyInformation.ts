@@ -51,6 +51,15 @@ const data = [
       "The hotel's reception desk is open 24 hours, with our friendly team on standby to assist you with anything from arranging tickets to local shows, to providing newspapers and secure luggage storage.",
   },
   {
+    responseCode: 'concierge_services',
+    category: 'About',
+    'hint-question': 'Concierge Services',
+    'detailed-explanation':
+      'Tell guests about the concierge services, and the how to contact them.',
+    example:
+      'Our concierge service is second to none and available 24/7. Please email concierge@bookmebob.com or phone xxxxx to get in touch with the concierge team.',
+  },
+  {
     responseCode: 'early_check_in_late_check_out',
     category: 'Frontdesk Services',
     'hint-question': 'Early Check-in/ Late Check-out',

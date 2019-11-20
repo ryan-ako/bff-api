@@ -10,26 +10,28 @@ import { Request, Response } from 'express';
 
 @Injectable()
 export class BotResponseService {
-  async deleteResponse(code) {
+  async deleteResponse(code, propertyId, groupId) {
     console.log('code', code);
-    const result = await this.delResponse(code);
+    console.log('propertyId', propertyId);
+    console.log('groupId', groupId);
+    const result = await this.delResponse(code, propertyId, groupId);
     return result;
   }
 
-  delResponse = async (code: string) => {
+  delResponse = async (code: string, propertyId: string, groupId: string) => {
     try {
       return await Axios({
         method: 'put',
-        url: `https://conapi.devtest.bookmebob.com/bot-responses/${code}/delete`,
+        url: `https://conapi.bookmebob.com/bot-responses/${code}/delete`,
         data: {
-          GroupId: '73574010-2f33-4b41-8b8a-09d18b025a56',
+          GroupId: groupId,
           Language: 'en-US',
           Channel: 'WebsiteDirectLine',
-          PropertyId: 'e655dab2-987b-4683-ad9b-599814b414b6',
+          PropertyId: propertyId,
         },
         auth: {
           username: 'bot',
-          password: 'bac99f72-8ee9-4308-a68a-59ecd0b677c9',
+          password: '331098F1-D73B-41B0-9810-62EDFDEE853A',
         },
       });
     } catch (error) {
@@ -38,20 +40,20 @@ export class BotResponseService {
     }
   };
 
-  async getAboutPropertyResponse(propertyId) {
-    return buildFormatedTestResponse(propertyInformation, propertyId);
+  async getAboutPropertyResponse(propertyId, groupId) {
+    return buildFormatedTestResponse(propertyInformation, propertyId, groupId);
   }
 
-  async getPropertyFacilitiesResponse(propertyId) {
-    return buildFormatedTestResponse(propertyAmenities, propertyId);
+  async getPropertyFacilitiesResponse(propertyId, groupId) {
+    return buildFormatedTestResponse(propertyAmenities, propertyId, groupId);
   }
 
-  async getRoomAmenitiesResponse(propertyId) {
-    return buildFormatedTestResponse(RoomAmenities, propertyId);
+  async getRoomAmenitiesResponse(propertyId, groupId) {
+    return buildFormatedTestResponse(RoomAmenities, propertyId, groupId);
   }
 
-  async getTestResponse(propertyId) {
-    return buildFormatedTestResponse(testExample, propertyId);
+  async getTestResponse(propertyId, groupId) {
+    return buildFormatedTestResponse(testExample, propertyId, groupId);
   }
 
   async createMessages(responseDto: ResponseDto): Promise<any> {
@@ -68,7 +70,7 @@ export class BotResponseService {
     try {
       return await Axios({
         method: 'post',
-        url: `https://conapi.devtest.bookmebob.com/bot-responses/messages`,
+        url: `https://conapi.bookmebob.com/bot-responses/messages`,
         data: {
           GroupId,
           Code,
@@ -80,7 +82,7 @@ export class BotResponseService {
         },
         auth: {
           username: 'bot',
-          password: 'bac99f72-8ee9-4308-a68a-59ecd0b677c9',
+          password: '331098F1-D73B-41B0-9810-62EDFDEE853A',
         },
       }).then(() => {
         return `Create Messages ${Code} successfully!`;
@@ -104,7 +106,7 @@ export class BotResponseService {
     try {
       return await Axios({
         method: 'put',
-        url: `https://conapi.devtest.bookmebob.com/bot-responses/${Code}`,
+        url: `https://conapi.bookmebob.com/bot-responses/${Code}`,
         data: {
           GroupId,
           Language,
@@ -115,7 +117,7 @@ export class BotResponseService {
         },
         auth: {
           username: 'bot',
-          password: 'bac99f72-8ee9-4308-a68a-59ecd0b677c9',
+          password: '331098F1-D73B-41B0-9810-62EDFDEE853A',
         },
       }).then(() => {
         return `Update Link ${Code} successfully!`;

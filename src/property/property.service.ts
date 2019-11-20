@@ -125,7 +125,7 @@ export class PropertyService {
       ];
     }
     /** Product Env YMCA */
-    if (groupId === '0971a8f8-d72a-4038-9aa0-e9237392ead1') {
+    if (groupId === '3dbd2e6f-7454-4fe9-8ea7-1874119b00ce') {
       return [
         {
           propertyId: '1f6ecd23-795e-4c79-86f0-e786e2f57c81',

@@ -17,33 +17,63 @@ export class BotResponseController {
   constructor(private readonly botResponseService: BotResponseService) {}
 
   @Put('/:code/delete')
-  async deleteResponse(@Res() res: Response, @Param() param) {
-    const result = await this.botResponseService.deleteResponse(param.code);
+  async deleteResponse(
+    @Res() res: Response,
+    @Param('code') code,
+    @Body('PropertyId') propertyId,
+    @Body('GroupId') groupId
+  ) {
+    const result = await this.botResponseService.deleteResponse(
+      code,
+      propertyId,
+      groupId
+    );
     if (result === 'error') {
-      return res.status(404).send(`${param.code} not found!`);
+      return res.status(404).send(`${code} not found!`);
     } else {
-      return res.status(202).send(`${param.code} is deleted!`);
+      return res.status(202).send(`${code} is deleted!`);
     }
   }
 
   @Get('/about-property-response')
-  getAboutPropertyResponse(@Query('property_id') propertyId) {
-    return this.botResponseService.getAboutPropertyResponse(propertyId);
+  getAboutPropertyResponse(
+    @Query('property_id') propertyId,
+    @Query('group_id') groupId
+  ) {
+    return this.botResponseService.getAboutPropertyResponse(
+      propertyId,
+      groupId
+    );
   }
 
   @Get('/property-facilities-response')
-  getPropertyFacilitiesResponse(@Query('property_id') propertyId) {
-    return this.botResponseService.getPropertyFacilitiesResponse(propertyId);
+  getPropertyFacilitiesResponse(
+    @Query('property_id') propertyId,
+    @Query('group_id') groupId
+  ) {
+    return this.botResponseService.getPropertyFacilitiesResponse(
+      propertyId,
+      groupId
+    );
   }
 
   @Get('/room-amenities-response')
-  getRoomAmenitiesResponse(@Query('property_id') propertyId) {
-    return this.botResponseService.getRoomAmenitiesResponse(propertyId);
+  getRoomAmenitiesResponse(
+    @Query('property_id') propertyId,
+    @Query('group_id') groupId
+  ) {
+    return this.botResponseService.getRoomAmenitiesResponse(
+      propertyId,
+      groupId
+    );
   }
 
   @Get('/test-response')
-  getTestResponse(@Query('property_id') propertyId) {
-    return this.botResponseService.getTestResponse(propertyId);
+  getTestResponse(
+    @Query('property_id') propertyId,
+    @Query('group_id') groupId
+  ) {
+    return this.botResponseService.getTestResponse(propertyId, groupId);
   }
 
   /**
